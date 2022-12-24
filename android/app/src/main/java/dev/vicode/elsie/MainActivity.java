@@ -1,4 +1,4 @@
-package com.elsie;
+package dev.vicode.elsie;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

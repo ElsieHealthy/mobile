@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "240779381909",
+    "project_id": "elsie-82d8e",
+    "storage_bucket": "elsie-82d8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240779381909:android:11eb1e4a16ce4588851f9c",
+        "android_client_info": {
+          "package_name": "dev.vicode.elsie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240779381909-fhf57ikhv2rqit6a2dfr767k1g433436.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFIwVnKDLMDdKGuYVdXzkJyTeUTJjaTCo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240779381909-fhf57ikhv2rqit6a2dfr767k1g433436.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "240779381909-md4642834toofc0pmln19j4j4a8toggm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "dev.vicode.elsie"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.elsie">
+  package="dev.vicode.elsie">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

@@ -1,4 +1,4 @@
-package com.elsie.newarchitecture;
+package dev.vicode.elsie.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.elsie.BuildConfig;
-import com.elsie.newarchitecture.components.MainComponentsRegistry;
-import com.elsie.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import dev.vicode.elsie.BuildConfig;
+import dev.vicode.elsie.newarchitecture.components.MainComponentsRegistry;
+import dev.vicode.elsie.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
