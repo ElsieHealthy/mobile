@@ -13,6 +13,8 @@ export const Colors = {
     LightGreen: '#AFE9E5',
     LightBrown: '#FFE2C7',
     LightYellow: '#FFE299',
+    LightGrey: '#C4C4C4',
+    LightBlue: '#90ADFC',
   },
   Label: {
     OffBlue: '#EFF5FB',

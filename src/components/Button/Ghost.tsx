@@ -4,7 +4,7 @@ import {Text, textStyles} from '../Text';
 import {Pressable, PressableProps} from './Pressable';
 import {ComponentStyles} from '../Styles';
 
-interface BlockProps extends PressableProps {
+interface GhostProps extends PressableProps {
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
   textStyle?: StyleProp<TextStyle>;
@@ -12,10 +12,10 @@ interface BlockProps extends PressableProps {
   onPress?: () => void;
 }
 
-export const Block: FC<PropsWithChildren<BlockProps>> = ({
+export const Ghost: FC<PropsWithChildren<GhostProps>> = ({
   iconLeft,
   iconRight,
-  textStyle = ComponentStyles.buttonText,
+  textStyle = ComponentStyles.ghostButtonText,
   buttonStyle,
   children,
   disabled,
@@ -24,7 +24,7 @@ export const Block: FC<PropsWithChildren<BlockProps>> = ({
   <Pressable
     style={[ComponentStyles.buttonRoot, {opacity: disabled ? 0.3 : 1}]}
     {...rest}>
-    <View style={[ComponentStyles.button, buttonStyle]}>
+    <View style={[ComponentStyles.ghostButton, buttonStyle]}>
       {iconLeft}
       {typeof children === 'string' ? (
         <Text

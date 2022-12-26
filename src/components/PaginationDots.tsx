@@ -1,22 +1,25 @@
 import React from 'react';
-import {Animated, StyleSheet, View, ViewStyle} from 'react-native';
+import {StyleSheet, View, ViewStyle} from 'react-native';
+import Animated, {
+  Extrapolation,
+  interpolate,
+  interpolateColor,
+  SharedValue,
+  useAnimatedStyle,
+} from 'react-native-reanimated';
 
 import {Colors} from '../Colors';
 
 export interface PaginationDotsProps {
   data: Array<Object>;
-  scrollX: Animated.Value;
+  scrollOffset: SharedValue<number>;
   containerStyle?: ViewStyle;
   itemWidth: number;
   itemSeparatorWidth: number;
 }
 
-const activeDotColor = Colors.Primary.Rose;
-const inActiveDotOpacity = 0.5;
-const activeDotScale = 1.4;
-
 export const PaginationDots = ({
-  scrollX,
+  scrollOffset,
   data,
   containerStyle,
   itemWidth,
@@ -30,36 +33,51 @@ export const PaginationDots = ({
 
   return (
     <View style={[styles.containerStyle, containerStyle]}>
-      {data.map((_, index) => {
-        const inputRange = [
-          (index - 1) * width,
-          index * width,
-          (index + 1) * width,
-        ];
-        const opacity = scrollX.interpolate({
-          inputRange,
-          outputRange: [inActiveDotOpacity, 1, inActiveDotOpacity],
-          extrapolate: 'clamp',
-        });
-        const scale = scrollX.interpolate({
-          inputRange: inputRange,
-          outputRange: [1, activeDotScale, 1],
-          extrapolate: 'clamp',
-        });
-
-        return (
-          <Animated.View
-            key={`dot-${index}`}
-            style={[
-              styles.dotStyle,
-              {opacity},
-              {transform: [{scale}]},
-              {backgroundColor: activeDotColor},
-            ]}
-          />
-        );
-      })}
+      {data.map((_, index) => (
+        <Dot index={index} scrollOffset={scrollOffset} cellWidth={width} />
+      ))}
     </View>
+  );
+};
+
+interface DotProps {
+  index: number;
+  scrollOffset: SharedValue<number>;
+  cellWidth: number;
+}
+
+const Dot = ({index, scrollOffset, cellWidth}: DotProps) => {
+  const inputRange = [
+    (index - 1) * cellWidth,
+    index * cellWidth,
+    (index + 1) * cellWidth,
+  ];
+
+  const animatedStyles = useAnimatedStyle(() => {
+    const width = interpolate(
+      scrollOffset.value,
+      inputRange,
+      [7, 34, 7],
+      Extrapolation.CLAMP,
+    );
+
+    const backgroundColor = interpolateColor(scrollOffset.value, inputRange, [
+      Colors.Secondary.LightGrey,
+      Colors.Secondary.LightBlue,
+      Colors.Secondary.LightGrey,
+    ]);
+
+    return {
+      width,
+      backgroundColor,
+    };
+  });
+
+  return (
+    <Animated.View
+      key={`dot-${index}`}
+      style={[styles.dotStyle, animatedStyles]}
+    />
   );
 };
 
@@ -69,9 +87,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   dotStyle: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    marginHorizontal: 5,
+    width: 7,
+    height: 7,
+    borderRadius: 3.5,
+    marginHorizontal: 2,
   },
 });
