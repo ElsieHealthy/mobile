@@ -1,12 +1,5 @@
-import React, {useRef, useState} from 'react';
-
-import {
-  View,
-  Dimensions,
-  StyleSheet,
-  ViewabilityConfig,
-  ViewabilityConfigCallbackPairs,
-} from 'react-native';
+import React from 'react';
+import {View, Dimensions, StyleSheet} from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedScrollHandler,

@@ -2,19 +2,19 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {HomeScreen} from '../screens/home/HomeScreen';
 
-export type HomeStackParamList = {
+export type ProfileStackParamList = {
   Home: undefined;
 };
 
-const HomeStack = createStackNavigator<HomeStackParamList>();
+const ProfileStack = createStackNavigator<ProfileStackParamList>();
 
-export const HomeNavigator = () => (
+export const ProfileNavigator = () => (
   // <UserProvider>
   //   <VehicleProvider>
   //     <FillingStationProvider>
-  <HomeStack.Navigator screenOptions={{headerShown: false}}>
-    <HomeStack.Screen name="Home" component={HomeScreen} />
-  </HomeStack.Navigator>
+  <ProfileStack.Navigator screenOptions={{headerShown: false}}>
+    <ProfileStack.Screen name="Home" component={HomeScreen} />
+  </ProfileStack.Navigator>
   //     </FillingStationProvider>
   //   </VehicleProvider>
   // </UserProvider>

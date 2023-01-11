@@ -1,14 +1,32 @@
 import React from 'react';
 import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
+import LinearGradient from 'react-native-linear-gradient';
 
 import {Colors} from '../Colors';
-import {IconWithBadge} from './Badge';
+import {HomeIcon} from '../icons/Home';
+import {CalendarIcon} from '../icons/Calendar';
+import {StethoscopeIcon} from '../icons/Stethoscope';
+import {ProfileIcon} from '../icons/Profile';
 
 export const TabBar = (props: BottomTabBarProps) => {
   const {state, descriptors, navigation} = props;
 
   const showTabBar = true;
+
+  const getIcon = (label: string, selected: boolean) => {
+    const selectedColor = selected ? Colors.Primary.White : Colors.Primary.Grey;
+    switch (label) {
+      case 'Home':
+        return <HomeIcon size={24} color={selectedColor} />;
+      case 'Calendar':
+        return <CalendarIcon size={24} color={selectedColor} />;
+      case 'Consultation':
+        return <StethoscopeIcon size={24} color={selectedColor} />;
+      case 'Profile':
+        return <ProfileIcon size={24} color={selectedColor} />;
+    }
+  };
 
   return (
     <>
@@ -16,12 +34,7 @@ export const TabBar = (props: BottomTabBarProps) => {
         <View style={styles.container}>
           {state.routes.map((route, index) => {
             const {options} = descriptors[route.key];
-            const label =
-              options.tabBarLabel !== undefined
-                ? options.tabBarLabel
-                : options.title !== undefined
-                ? options.title
-                : route.name;
+            const {tabBarLabel} = options;
             const isFocused = state.index === index;
 
             const onPress = () => {
@@ -54,28 +67,15 @@ export const TabBar = (props: BottomTabBarProps) => {
                   onPress();
                 }}
                 onLongPress={onLongPress}>
-                <View style={styles.iconWrapper}>
-                  {options.tabBarIcon &&
-                    options.tabBarIcon({
-                      focused: isFocused,
-                      color: isFocused
-                        ? Colors.Primary.Rose
-                        : Colors.Secondary.LightGreen,
-                      size: 24,
-                    })}
-                  {options.tabBarBadge === -1 && (
-                    <View style={styles.iconContainer}>
-                      <IconWithBadge />
-                    </View>
-                  )}
-                </View>
-                <Text
-                  style={[
-                    styles.buttonText,
-                    isFocused && styles.buttonTextFocused,
-                  ]}>
-                  {label}
-                </Text>
+                <LinearGradient
+                  colors={
+                    isFocused
+                      ? Colors.Gradients.Purple
+                      : [Colors.Primary.White, Colors.Primary.White]
+                  }
+                  style={styles.iconWrapper}>
+                  {getIcon(tabBarLabel, isFocused)}
+                </LinearGradient>
               </TouchableOpacity>
             );
           })}
@@ -94,13 +94,12 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     height: 80,
-    // borderTopWidth: 1,
-    // borderTopColor: Colors.Primary.Grey,
   },
   iconWrapper: {
     flexDirection: 'row',
     margin: 0,
-    padding: 0,
+    padding: 10,
+    borderRadius: 28,
   },
   iconContainer: {
     position: 'absolute',

@@ -21,4 +21,9 @@ export const Colors = {
     OffGreen: '#EEFAF6',
     OffRed: '#FCECEF',
   },
+  Gradients: {
+    Rose: ['#FFA4C1', '#F24187'],
+    Blue: ['#A4BDFF', '#4168F2'],
+    Purple: ['#968AFD', '#7583FF'],
+  },
 };
