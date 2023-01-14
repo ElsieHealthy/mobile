@@ -2,6 +2,8 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {TelemedicineScreen} from '../screens/telemedicine/TelemedicineScreen';
 import {DoctorDetailScreen} from '../screens/doctor/DoctorDetailScreen';
+import {DoctorsProvider} from '../context/Doctors';
+import {ProductsProvider} from '../context/Products';
 
 export type ConsultationStackParamList = {
   Telemedicine: undefined;
@@ -13,20 +15,18 @@ export type ConsultationStackParamList = {
 const ConsultationStack = createStackNavigator<ConsultationStackParamList>();
 
 export const ConsultationNavigator = () => (
-  // <UserProvider>
-  //   <VehicleProvider>
-  //     <FillingStationProvider>
-  <ConsultationStack.Navigator screenOptions={{headerShown: false}}>
-    <ConsultationStack.Screen
-      name="Telemedicine"
-      component={TelemedicineScreen}
-    />
-    <ConsultationStack.Screen
-      name="DoctorDetail"
-      component={DoctorDetailScreen}
-    />
-  </ConsultationStack.Navigator>
-  //     </FillingStationProvider>
-  //   </VehicleProvider>
-  // </UserProvider>
+  <DoctorsProvider>
+    <ProductsProvider>
+      <ConsultationStack.Navigator screenOptions={{headerShown: false}}>
+        <ConsultationStack.Screen
+          name="Telemedicine"
+          component={TelemedicineScreen}
+        />
+        <ConsultationStack.Screen
+          name="DoctorDetail"
+          component={DoctorDetailScreen}
+        />
+      </ConsultationStack.Navigator>
+    </ProductsProvider>
+  </DoctorsProvider>
 );
