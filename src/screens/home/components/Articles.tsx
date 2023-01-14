@@ -20,6 +20,12 @@ const figureHeight = Dimensions.get('screen').height * 0.13;
 export const Articles = () => {
   const {navigate} = useNavigation<NavigationProps>();
 
+  const onPressArticle = () => {
+    navigate('ArticleDetail', {
+      id: '',
+    });
+  };
+
   return (
     <View style={styles.rootContainer}>
       <View style={styles.headerContainer}>
@@ -36,6 +42,7 @@ export const Articles = () => {
       </View>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <Pressable
+          onPress={onPressArticle}
           style={styles.card}
           containerStyle={styles.cardRootContainer}>
           <Text style={styles.cardTitle}>Daily Women</Text>
@@ -45,6 +52,7 @@ export const Articles = () => {
         </Pressable>
 
         <Pressable
+          onPress={onPressArticle}
           style={styles.card}
           containerStyle={styles.cardRootContainer}>
           <Text style={styles.cardTitle}>Daily Women</Text>
@@ -54,6 +62,7 @@ export const Articles = () => {
         </Pressable>
 
         <Pressable
+          onPress={onPressArticle}
           style={styles.card}
           containerStyle={styles.cardRootContainer}>
           <Text style={styles.cardTitle}>Daily Women</Text>

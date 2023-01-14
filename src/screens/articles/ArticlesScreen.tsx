@@ -22,9 +22,24 @@ export const ArticlesScreen = () => {
         onPressLeft={goBack}
       />
       <Categories />
-      <ArticleRow title={'Hot Article'} />
-      <ArticleRow title={'Recent'} />
-      <ArticleRow title={'Handpick'} />
+      <ArticleRow
+        title={'Hot Article'}
+        onPress={() => {
+          navigate('ArticleDetail', {id: ''});
+        }}
+      />
+      <ArticleRow
+        title={'Recent'}
+        onPress={() => {
+          navigate('ArticleDetail', {id: ''});
+        }}
+      />
+      <ArticleRow
+        title={'Handpick'}
+        onPress={() => {
+          navigate('ArticleDetail', {id: ''});
+        }}
+      />
     </View>
   );
 };

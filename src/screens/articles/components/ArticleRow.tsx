@@ -11,12 +11,13 @@ const cardHeight = Dimensions.get('screen').height * 0.15;
 
 interface ArticleRowProps {
   title: string;
+  onPress: () => void;
 }
 
-export const ArticleRow = ({title}: ArticleRowProps) => {
+export const ArticleRow = ({title, onPress}: ArticleRowProps) => {
   const renderItem = ({item}) => {
     return (
-      <Pressable containerStyle={styles.card}>
+      <Pressable onPress={onPress} containerStyle={styles.card}>
         <FastImage
           style={styles.image}
           source={{
