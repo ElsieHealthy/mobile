@@ -1,25 +1,31 @@
 import React from 'react';
-import {View, Dimensions, StyleSheet} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import {Colors} from '../../Colors';
-import {Pressable} from '../../components/Button/Pressable';
-import {FontSize, Text} from '../../components/Text';
 import {Articles} from './components/Articles';
+import {Header} from './components/Header';
+import {Heart} from './components/Heart';
 import {Moods} from './components/Moods';
+import {Timeline} from './components/Timeline';
 
 export const HomeScreen = () => {
   return (
     <View style={styles.root}>
-      <View style={{flex: 0.5}}></View>
-      <View
-        style={{
-          flex: 0.5,
-          borderTopStartRadius: 30,
-          backgroundColor: Colors.Primary.White,
-          padding: 20,
-        }}>
-        <Moods />
-        <Articles />
-      </View>
+      <Header />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.topContainer}>
+          <Heart />
+          <Timeline
+            numberOfEvents={31}
+            current={14}
+            selected={14}
+            onSelect={() => {}}
+          />
+        </View>
+        <View style={styles.bottomContainer}>
+          <Moods />
+          <Articles />
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -27,6 +33,16 @@ export const HomeScreen = () => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: Colors.Secondary.LightRose,
+    backgroundColor: Colors.Label.OffRed,
+  },
+  topContainer: {
+    flex: 0.5,
+    backgroundColor: Colors.Label.OffRed,
+  },
+  bottomContainer: {
+    flex: 0.5,
+    borderTopStartRadius: 30,
+    backgroundColor: Colors.Primary.White,
+    padding: 20,
   },
 });

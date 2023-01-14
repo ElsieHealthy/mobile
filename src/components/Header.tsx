@@ -1,9 +1,10 @@
 import React from 'react';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {StyleSheet, Pressable, View} from 'react-native';
-import {Text, FontSize} from './Text';
+import {Text} from './Text';
 import {Styles} from '../Styles';
 import {Colors} from '../Colors';
+import {Font} from '../Fonts';
 
 interface HeaderProps {
   title: string | {title: string; subTitle: string};
@@ -80,7 +81,7 @@ export const Header = ({
       <View style={styles.header}>
         {renderLeftIcon()}
         <View style={styles.content}>
-          <Text fontSize={FontSize.TitleOne} center>
+          <Text style={styles.title} center>
             {title}
           </Text>
         </View>
@@ -96,6 +97,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingBottom: 8,
+  },
+  title: {
+    fontFamily: Font.Bold,
+    fontSize: 18,
   },
 
   left: {

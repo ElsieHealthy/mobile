@@ -1,3 +1,5 @@
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {View, StyleSheet, Dimensions} from 'react-native';
 import {Colors} from '../../../Colors';
@@ -5,21 +7,24 @@ import {Pressable} from '../../../components/Button/Pressable';
 import {FontSize, Text} from '../../../components/Text';
 import {Font} from '../../../Fonts';
 import {
-  DailyFigure,
   MoodFigure,
-  ActivityFigure,
   HappinessFigure,
   StrongFigure,
 } from '../../../icons/article';
+import {HomeStackParamList} from '../../../navigators/Home';
 
-const figureHeight = Dimensions.get('screen').height * 0.18;
+type NavigationProps = StackNavigationProp<HomeStackParamList, 'Home'>;
+
+const figureHeight = Dimensions.get('screen').height * 0.13;
 
 export const Articles = () => {
+  const {navigate} = useNavigation<NavigationProps>();
+
   return (
     <View style={styles.rootContainer}>
       <View style={styles.headerContainer}>
         <Text fontSize={FontSize.Headline}>Article</Text>
-        <Pressable>
+        <Pressable onPress={() => navigate('ArticleList')}>
           <Text
             style={{
               color: Colors.Primary.Purple,

@@ -8,7 +8,9 @@ import {PlusIcon} from '../../../icons/Plus';
 export const Moods = () => {
   return (
     <View>
-      <Text fontSize={FontSize.Headline}>Your Mood</Text>
+      <Text style={styles.moodText} fontSize={FontSize.Headline}>
+        Your Mood
+      </Text>
       <View style={styles.moodContainer}>
         <Pressable
           style={styles.moodButton}
@@ -25,6 +27,9 @@ export const Moods = () => {
 const styles = StyleSheet.create({
   moodContainer: {
     flexDirection: 'row',
+  },
+  moodText: {
+    paddingVertical: 8,
   },
   moodButton: {
     borderRadius: 10,

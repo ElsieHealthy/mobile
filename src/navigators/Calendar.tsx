@@ -1,9 +1,10 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {HomeScreen} from '../screens/home/HomeScreen';
+import {ChartScreen} from '../screens/chart/ChartScreen';
 
 export type CalendarStackParamList = {
-  Home: undefined;
+  Chart: undefined;
 };
 
 const CalendarStack = createStackNavigator<CalendarStackParamList>();
@@ -13,7 +14,7 @@ export const CalendarNavigator = () => (
   //   <VehicleProvider>
   //     <FillingStationProvider>
   <CalendarStack.Navigator screenOptions={{headerShown: false}}>
-    <CalendarStack.Screen name="Home" component={HomeScreen} />
+    <CalendarStack.Screen name="Chart" component={ChartScreen} />
   </CalendarStack.Navigator>
   //     </FillingStationProvider>
   //   </VehicleProvider>

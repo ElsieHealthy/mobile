@@ -6,6 +6,7 @@ export const Colors = {
     White: '#FFFFFF',
     Black: '#000000',
     DarkBlue: '#20314B',
+    Red: '#F24187',
   },
   Secondary: {
     LightPurple: '#F5F1FF',
@@ -17,13 +18,15 @@ export const Colors = {
     LightBlue: '#90ADFC',
   },
   Label: {
-    OffBlue: '#EFF5FB',
+    OffBlue: '#F6F5FF',
     OffGreen: '#EEFAF6',
     OffRed: '#FCECEF',
+    OffPink: '#FFEAEB',
   },
   Gradients: {
     Rose: ['#FFA4C1', '#F24187'],
     Blue: ['#A4BDFF', '#4168F2'],
     Purple: ['#968AFD', '#7583FF'],
+    Red: ['#FFFFFF00', '#FFFFFF00', '#842B2B'],
   },
 };
