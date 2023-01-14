@@ -1,9 +1,13 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {HomeScreen} from '../screens/home/HomeScreen';
+import {TelemedicineScreen} from '../screens/telemedicine/TelemedicineScreen';
+import {DoctorDetailScreen} from '../screens/doctor/DoctorDetailScreen';
 
 export type ConsultationStackParamList = {
-  Home: undefined;
+  Telemedicine: undefined;
+  DoctorDetail: {
+    id: string;
+  };
 };
 
 const ConsultationStack = createStackNavigator<ConsultationStackParamList>();
@@ -13,7 +17,14 @@ export const ConsultationNavigator = () => (
   //   <VehicleProvider>
   //     <FillingStationProvider>
   <ConsultationStack.Navigator screenOptions={{headerShown: false}}>
-    <ConsultationStack.Screen name="Home" component={HomeScreen} />
+    <ConsultationStack.Screen
+      name="Telemedicine"
+      component={TelemedicineScreen}
+    />
+    <ConsultationStack.Screen
+      name="DoctorDetail"
+      component={DoctorDetailScreen}
+    />
   </ConsultationStack.Navigator>
   //     </FillingStationProvider>
   //   </VehicleProvider>

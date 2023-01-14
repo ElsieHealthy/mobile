@@ -7,6 +7,7 @@ export const Colors = {
     Black: '#000000',
     DarkBlue: '#20314B',
     Red: '#F24187',
+    Orange: '#FF9786',
   },
   Secondary: {
     LightPurple: '#F5F1FF',
@@ -16,6 +17,7 @@ export const Colors = {
     LightYellow: '#FFE299',
     LightGrey: '#C4C4C4',
     LightBlue: '#90ADFC',
+    LightWhite: '#F3F3F3',
   },
   Label: {
     OffBlue: '#F6F5FF',

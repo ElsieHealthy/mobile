@@ -1,6 +1,6 @@
+import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Colors} from '../../Colors';
 import {Header} from '../../components/Header';
