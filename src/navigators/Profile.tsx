@@ -1,21 +1,15 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {HomeScreen} from '../screens/home/HomeScreen';
+import {ProfileScreen} from '../screens/profile/ProfileScreen';
 
 export type ProfileStackParamList = {
-  Home: undefined;
+  Profile: undefined;
 };
 
 const ProfileStack = createStackNavigator<ProfileStackParamList>();
 
 export const ProfileNavigator = () => (
-  // <UserProvider>
-  //   <VehicleProvider>
-  //     <FillingStationProvider>
   <ProfileStack.Navigator screenOptions={{headerShown: false}}>
-    <ProfileStack.Screen name="Home" component={HomeScreen} />
+    <ProfileStack.Screen name="Profile" component={ProfileScreen} />
   </ProfileStack.Navigator>
-  //     </FillingStationProvider>
-  //   </VehicleProvider>
-  // </UserProvider>
 );
