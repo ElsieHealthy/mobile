@@ -7,7 +7,6 @@ import {Font} from '../../../Fonts';
 import {CalendarIcon} from '../../../icons/Calendar';
 import {Header} from './Header';
 
-
 export const Calendar = () => {
   const getDate = (count: number) => {
     const date = new Date();
