@@ -11,6 +11,7 @@ type NavigationProps = StackNavigationProp<
   'Telemedicine'
 >;
 
+
 export const Doctors = () => {
   const [seeAll, setSeeAll] = useState(false);
   const {navigate} = useNavigation<NavigationProps>();
