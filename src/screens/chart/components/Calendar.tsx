@@ -32,6 +32,7 @@ export const Calendar = () => {
     );
   };
 
+  
   return (
     <View style={styles.root}>
       <RNCalendar
