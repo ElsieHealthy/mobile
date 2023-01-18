@@ -14,6 +14,8 @@ export const Calendar = () => {
     return CalendarUtils.getCalendarDateString(newDate);
   };
 
+
+  
   const renderHeader = () => {
     return (
       <View>
