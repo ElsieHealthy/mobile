@@ -7,10 +7,10 @@ import {ProfileNavigator} from './Profile';
 import {TabBar} from '../components/TabBar';
 
 export type TabNavigatorParamList = {
-  Home: undefined;
-  Calendar: undefined;
-  Consultation: undefined;
-  Profile: undefined;
+  HomeStack: undefined;
+  CalendarStack: undefined;
+  ConsultationStack: undefined;
+  ProfileStack: undefined;
 };
 
 const Tab = createBottomTabNavigator<TabNavigatorParamList>();
@@ -19,7 +19,7 @@ export const TabNavigator = () => {
   return (
     <Tab.Navigator tabBar={TabBar}>
       <Tab.Screen
-        name={'Home'}
+        name={'HomeStack'}
         component={HomeNavigator}
         options={{
           headerShown: false,
@@ -28,7 +28,7 @@ export const TabNavigator = () => {
       />
 
       <Tab.Screen
-        name={'Calendar'}
+        name={'CalendarStack'}
         component={CalendarNavigator}
         options={{
           headerShown: false,
@@ -36,7 +36,7 @@ export const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name={'Consultation'}
+        name={'ConsultationStack'}
         component={ConsultationNavigator}
         options={{
           headerShown: false,
@@ -44,7 +44,7 @@ export const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name={'Profile'}
+        name={'ProfileStack'}
         component={ProfileNavigator}
         options={{
           headerShown: false,

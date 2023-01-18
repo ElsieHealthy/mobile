@@ -5,8 +5,8 @@ export const ComponentStyles = StyleSheet.create({
     height: 50,
     paddingHorizontal: 16,
     fontSize: 16,
-    color: Colors.Primary.Grey,
-    backgroundColor: Colors.Secondary.LightYellow,
+    color: Colors.Primary.DarkBlue,
+    backgroundColor: Colors.Secondary.LightWhite,
     borderRadius: 10,
     marginTop: 8,
   },
@@ -17,7 +17,7 @@ export const ComponentStyles = StyleSheet.create({
     width: '100%',
   },
   inputText: {
-    color: Colors.Primary.Grey,
+    color: Colors.Primary.DarkBlue,
   },
   inputError: {
     color: Colors.Secondary.LightRose,

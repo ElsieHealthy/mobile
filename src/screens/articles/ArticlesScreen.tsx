@@ -9,7 +9,7 @@ import {HomeStackParamList} from '../../navigators/Home';
 import {ArticleRow} from './components/ArticleRow';
 import {Categories} from './components/Categories';
 
-type NavigationProps = StackNavigationProp<HomeStackParamList, 'Home'>;
+type NavigationProps = StackNavigationProp<HomeStackParamList, 'ArticleDetail'>;
 
 export const ArticlesScreen = () => {
   const {navigate, goBack} = useNavigation<NavigationProps>();

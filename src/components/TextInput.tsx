@@ -38,7 +38,7 @@ export const TextInput = forwardRef<any, TextInputProps>(
         <RNTextInput
           ref={ref}
           style={[ComponentStyles.input, block && ComponentStyles.inputBlock]}
-          placeholderTextColor={Colors.Secondary.LightBrown}
+          placeholderTextColor={Colors.Secondary.LightGrey}
           autoCorrect={false}
           autoCapitalize={autoCapitalize}
           editable={editable}

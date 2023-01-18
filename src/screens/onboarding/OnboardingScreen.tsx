@@ -1,3 +1,5 @@
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {View, Dimensions, StyleSheet} from 'react-native';
 import Animated, {
@@ -9,6 +11,7 @@ import {Colors} from '../../Colors';
 import {Block} from '../../components/Button/Block';
 import {Ghost} from '../../components/Button/Ghost';
 import {PaginationDots} from '../../components/PaginationDots';
+import {AuthenticationStackParamList} from '../../navigators/Authentication';
 import {OnboardingBackgroundView} from './components/OnboardingBackgroundView';
 import {OnboardingDetailView} from './components/OnboardingDetailView';
 
@@ -38,9 +41,15 @@ const onboardingViews = [
   },
 ];
 
+type NavigationProps = StackNavigationProp<
+  AuthenticationStackParamList,
+  'Onboarding'
+>;
+
 export const OnboardingScreen = () => {
   const scrollX = useSharedValue(0);
   const scroll = useAnimatedRef<Animated.ScrollView>();
+  const {navigate} = useNavigation<NavigationProps>();
 
   const scrollHandler = useAnimatedScrollHandler({
     onScroll: event => {
@@ -86,18 +95,30 @@ export const OnboardingScreen = () => {
           <Block
             onPress={() => {
               if (scroll && scroll?.current) {
-                scroll?.current.scrollTo({
-                  x: width + scrollX.value,
-                  y: 0,
-                  animated: true,
-                });
+                if (
+                  Number(scrollX.value).toFixed(0) <
+                  Number(width * 2).toFixed(0)
+                ) {
+                  scroll?.current.scrollTo({
+                    x: width + scrollX.value,
+                    y: 0,
+                    animated: true,
+                  });
+                } else {
+                  navigate('AboutYou');
+                }
               }
             }}>
             Next
           </Block>
         </View>
         <View style={styles.buttonContainer}>
-          <Ghost onPress={() => {}}>Skip</Ghost>
+          <Ghost
+            onPress={() => {
+              navigate('AboutYou');
+            }}>
+            Skip
+          </Ghost>
         </View>
       </View>
     </View>
