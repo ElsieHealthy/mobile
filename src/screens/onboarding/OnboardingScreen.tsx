@@ -15,6 +15,7 @@ import {AuthenticationStackParamList} from '../../navigators/Authentication';
 import {OnboardingBackgroundView} from './components/OnboardingBackgroundView';
 import {OnboardingDetailView} from './components/OnboardingDetailView';
 
+
 const {height, width} = Dimensions.get('window');
 
 const onboardingViews = [
@@ -41,6 +42,7 @@ const onboardingViews = [
   },
 ];
 
+
 type NavigationProps = StackNavigationProp<
   AuthenticationStackParamList,
   'Onboarding'
@@ -56,6 +58,7 @@ export const OnboardingScreen = () => {
       scrollX.value = event.contentOffset.x;
     },
   });
+
 
   return (
     <View style={styles.root}>
@@ -128,6 +131,7 @@ export const OnboardingScreen = () => {
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   root: {
