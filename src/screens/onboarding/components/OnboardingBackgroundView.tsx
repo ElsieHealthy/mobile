@@ -28,6 +28,7 @@ export const OnboardingBackgroundView = ({
   );
 };
 
+
 const styles = StyleSheet.create({
   root: {
     backgroundColor: Colors.Secondary.LightGreen,

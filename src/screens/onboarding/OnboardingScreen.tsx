@@ -15,6 +15,7 @@ import {AuthenticationStackParamList} from '../../navigators/Authentication';
 import {OnboardingBackgroundView} from './components/OnboardingBackgroundView';
 import {OnboardingDetailView} from './components/OnboardingDetailView';
 
+
 const {height, width} = Dimensions.get('window');
 
 const onboardingViews = [

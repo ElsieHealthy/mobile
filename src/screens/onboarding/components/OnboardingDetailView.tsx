@@ -41,6 +41,7 @@ export const OnboardingDetailView = ({
   );
 };
 
+
 interface DetailProps {
   index: number;
   scrollOffset: SharedValue<number>;
