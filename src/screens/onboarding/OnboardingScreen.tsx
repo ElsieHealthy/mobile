@@ -42,6 +42,7 @@ const onboardingViews = [
   },
 ];
 
+
 type NavigationProps = StackNavigationProp<
   AuthenticationStackParamList,
   'Onboarding'
@@ -57,6 +58,7 @@ export const OnboardingScreen = () => {
       scrollX.value = event.contentOffset.x;
     },
   });
+
 
   return (
     <View style={styles.root}>
@@ -129,6 +131,7 @@ export const OnboardingScreen = () => {
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   root: {

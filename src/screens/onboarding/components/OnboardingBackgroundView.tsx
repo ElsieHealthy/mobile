@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {Colors} from '../../../Colors';
 
+
 const {width, height} = Dimensions.get('window');
 
 interface OnboardingBackgroundViewProps {

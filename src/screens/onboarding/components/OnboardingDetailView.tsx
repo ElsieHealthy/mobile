@@ -8,6 +8,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import {FontSize, Text} from '../../../components/Text';
 
+
 const {width} = Dimensions.get('window');
 
 interface OnboardingDescriptionViewProps {
@@ -16,6 +17,7 @@ interface OnboardingDescriptionViewProps {
   itemWidth: number;
   itemSeparatorWidth: number;
 }
+
 
 export const OnboardingDetailView = ({
   data,
