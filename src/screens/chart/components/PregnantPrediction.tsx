@@ -15,6 +15,8 @@ const data = {
   ],
 };
 
+
+
 export const PregnantPrediction = () => {
   return (
     <LineChart
