@@ -19,6 +19,7 @@ type NavigationProps = StackNavigationProp<
   'LastPeriod'
 >;
 
+
 export const LastPeriodScreen = () => {
   const {navigate, goBack} = useNavigation<NavigationProps>();
   const {top, bottom} = useSafeAreaInsets();
