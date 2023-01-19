@@ -71,8 +71,12 @@ export const OnboardingScreen = () => {
           showsHorizontalScrollIndicator={false}
           onScroll={scrollHandler}
           disableIntervalMomentum>
-          {onboardingViews.map(({image, color}) => (
-            <OnboardingBackgroundView image={image} color={color} />
+          {onboardingViews.map(({image, color}, index) => (
+            <OnboardingBackgroundView
+              key={`${index}`}
+              image={image}
+              color={color}
+            />
           ))}
         </Animated.ScrollView>
       </View>

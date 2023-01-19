@@ -9,8 +9,6 @@ import React, {
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {ReactNativeFirebase} from '@react-native-firebase/app';
 import {UserService} from '../services/UserService';
-import {AuthenticationStackParamList} from '../navigators/Authentication';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
 
 type State = {
   loading: boolean;
@@ -40,45 +38,18 @@ interface Props {
   children: any;
 }
 
-type NavigationProps = NavigationProp<
-  AuthenticationStackParamList,
-  'AccountDetails'
->;
-
 export const AuthProvider = ({children}: Props) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [isAuthenticated, setAuthenticated] = useState<boolean>(false);
   const [confirm, setConfirm] =
     useState<FirebaseAuthTypes.ConfirmationResult | null>(null);
   const [user, setUser] = useState<User | null>(null);
-  const {navigate} = useNavigation<NavigationProps>();
 
   useEffect(() => {
     setLoading(true);
-    const subscriber = auth().onAuthStateChanged(_authUser => {
-      if (_authUser) {
-        UserService.onGet(_authUser.uid).then(_u => {
-          setUser(_u);
-          console.log('_u', _u);
-          if (!_u.onboarding) {
-            navigate('AccountDetails');
-            return;
-          }
-
-          if (_u.onboarding === 'COMPLETED') {
-            setAuthenticated(true);
-          } else if (_u.onboarding === 'AD') {
-            navigate('VehicleDetails');
-          }
-        });
-        setLoading(false);
-      } else {
-        setLoading(false);
-        setAuthenticated(false);
-      }
-    });
+    const subscriber = auth().onAuthStateChanged(_authUser => {});
     return subscriber; // unsubscribe on unmount
-  }, [navigate]);
+  }, []);
 
   const signInWithPhoneNumber = useCallback(async (phoneNumber: string) => {
     return new Promise<void>((resolve, reject) => {

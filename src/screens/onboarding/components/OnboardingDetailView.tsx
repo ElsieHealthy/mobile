@@ -29,6 +29,7 @@ export const OnboardingDetailView = ({
     <Animated.View style={[{flexDirection: 'row'}]}>
       {data.map(({title, description}, index) => (
         <Detail
+          key={index}
           title={title}
           description={description}
           index={index}

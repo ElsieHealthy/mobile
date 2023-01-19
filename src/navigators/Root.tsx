@@ -9,22 +9,17 @@ import {
   AuthenticationStackParamList,
 } from './Authentication';
 import {useAuthentication} from '../context/Auth';
-import {HomeNavigator, HomeStackParamList} from './Home';
+import {TabNavigator, TabNavigatorParamList} from './Tab';
 
 export type RootStackParamList = {
   AuthStack: NavigatorScreenParams<AuthenticationStackParamList>;
-  HomeStack: NavigatorScreenParams<HomeStackParamList>;
+  TabStack: NavigatorScreenParams<TabNavigatorParamList>;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
 
 export const RootNavigator = () => {
   const {isAuthenticated, loading} = useAuthentication();
-
-  if (loading) {
-    return <></>;
-  }
-
   return (
     <RootStack.Navigator
       screenOptions={{
@@ -34,7 +29,7 @@ export const RootNavigator = () => {
         gestureEnabled: false,
       }}>
       {isAuthenticated ? (
-        <RootStack.Screen name="HomeStack" component={HomeNavigator} />
+        <RootStack.Screen name="TabStack" component={TabNavigator} />
       ) : (
         <RootStack.Screen
           name="AuthStack"

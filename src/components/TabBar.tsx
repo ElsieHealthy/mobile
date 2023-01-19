@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -74,7 +74,7 @@ export const TabBar = (props: BottomTabBarProps) => {
                       : [Colors.Primary.White, Colors.Primary.White]
                   }
                   style={styles.iconWrapper}>
-                  {getIcon(tabBarLabel, isFocused)}
+                  {getIcon(tabBarLabel ?? '', isFocused)}
                 </LinearGradient>
               </TouchableOpacity>
             );
