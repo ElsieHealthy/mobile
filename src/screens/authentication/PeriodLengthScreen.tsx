@@ -14,10 +14,12 @@ import {useOnboarding} from '../../context/Onboarding';
 import {Pressable} from '../../components/Button/Pressable';
 import {ArrowLeftIcon} from '../../icons/ArrowLeft';
 
+
 type NavigationProps = StackNavigationProp<
   AuthenticationStackParamList,
   'PeriodLength'
 >;
+
 
 export const PeriodLengthScreen = () => {
   const {navigate, goBack} = useNavigation<NavigationProps>();

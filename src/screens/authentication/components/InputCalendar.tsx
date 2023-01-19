@@ -7,6 +7,7 @@ import {Font} from '../../../Fonts';
 import {CalendarIcon} from '../../../icons/Calendar';
 import {Header} from '../../chart/components/Header';
 
+
 interface InputCalendarProps {
   selectedDate: Date | null;
   onChangeDate: (date: Date) => void;

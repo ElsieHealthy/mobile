@@ -20,6 +20,7 @@ type NavigationProps = StackNavigationProp<
   'Cycle'
 >;
 
+
 export const CycleScreen = () => {
   const {navigate, goBack} = useNavigation<NavigationProps>();
   const {top, bottom} = useSafeAreaInsets();
