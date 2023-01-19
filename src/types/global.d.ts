@@ -9,3 +9,10 @@ type IconProps = {
   marginX?: number;
   style?: StyleProp<ViewStyle>;
 };
+
+interface Mood {
+  text: string;
+  type: string;
+  image: any;
+  backgroundColor: string;
+}
